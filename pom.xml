@@ -23,7 +23,7 @@
 	</dependencies>
 	
 		<build>
-		<finalName>my-spring-app</finalName>
+		<finalName>my-rest-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
