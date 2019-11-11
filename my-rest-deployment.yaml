@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata: 
+  name: my-deployment
+  labels:
+    app: my-deployment-label
+spec:
+  replicas: 1
+  template: 
+    metadata:
+      name: my-pod
+      labels:
+        app: my-pod-label
+    spec:
+      containers:
+      - image: thialex/my-rest-app
+        name: my-container-name
+        ports:
+        - containerPort: 8085
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service-name 
+spec:
+  ports:
+  - name: my-first-service 
+    port: 8085          # port exposed to clients
+    targetPort: 8085  # container port
+  selector:
+    app: my-pod-label # route traffic to Pods matching this label
+  type: NodePort
