@@ -12,7 +12,6 @@ volumes: [
   node(label) {
 
     stage('compile'){
-        git 'https://github.com/thiago-a-souza/my-rest-app.git'
         container('maven') {
             sh 'mvn package'
         }
