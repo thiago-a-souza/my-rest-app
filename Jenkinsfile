@@ -11,6 +11,10 @@ volumes: [
 ]) {
   node(label) {
 
+    stage('check out'){
+	checkout scm
+    }
+
     stage('compile'){
         container('maven') {
             sh 'mvn package'
